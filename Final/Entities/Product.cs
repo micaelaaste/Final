@@ -1,4 +1,6 @@
-﻿namespace Final.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Final.Entities;
 
 public class Product
 {
@@ -10,5 +12,7 @@ public class Product
     public int Discount { get; set; }
     public string Description { get; set; }
     public int CategoryId { get; set; }
-    public int RestaurantId { get; set; }
+    [ForeignKey("CategoryId")]
+    public Category Category { get; set; }
+
 }
