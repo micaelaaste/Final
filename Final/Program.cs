@@ -17,8 +17,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        WebApplication.CreateBuilder(args);
-
         builder.Services.AddDbContext<FinalContext>
         (dbContextOptions => dbContextOptions.UseSqlite(builder.Configuration["ConnectionStrings:FinalDBConnectionString"]));
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Final.DTOs.Requests;
+namespace Final.DTOs.Request;
 
 public class CredentialDto
 {

@@ -15,14 +15,14 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public List<UserDto> GetAll()
+    public List<RestaurantDto> GetAll()
     {
         return _userRepository.GetAll()
-            .Select(u => ToDto(u)) 
+            .Select(u => ToRestaurantDto(u)) 
             .ToList();
     }
 
-    public UserDto? GetById(int id)
+    public RestaurantDto? GetById(int id)
     {
         User? user = _userRepository.GetById(id);
 
@@ -31,7 +31,7 @@ public class UserService : IUserService
             return null;
         }
 
-        return ToDto(user);         // PREGUNTAR A NICO SI SE PUEDE USAR ASI O SI HACEMOS EL MAPEO DENTRO DE CADA METODO recibe una entidad y devuelve un dto de salida con lo mismo pero que puede ver el cliente 
+        return ToRestaurantDto(user); // PREGUNTAR A NICO SI SE PUEDE USAR ASI O SI HACEMOS EL MAPEO DENTRO DE CADA METODO recibe una entidad y devuelve un dto de salida con lo mismo pero que puede ver el cliente 
     }
     public bool EmailIsTaken(string email)
     {
@@ -122,6 +122,16 @@ public class UserService : IUserService
             Name = user.Name,
             LastName = user.LastName,
             Email = user.Email,
+            RestaurantName = user.RestaurantName,
+            Address = user.Address,
+            PhoneNumber = user.PhoneNumber
+        };
+    }
+    private RestaurantDto ToRestaurantDto(User user)
+    {
+        return new RestaurantDto
+        {
+            Id = user.Id,
             RestaurantName = user.RestaurantName,
             Address = user.Address,
             PhoneNumber = user.PhoneNumber

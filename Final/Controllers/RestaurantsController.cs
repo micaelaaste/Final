@@ -31,7 +31,7 @@ public class RestaurantsController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        UserDto? restaurant = _userService.GetById(id);
+        RestaurantDto? restaurant = _userService.GetById(id);
 
         if (restaurant == null)
         {

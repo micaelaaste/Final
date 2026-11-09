@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Final.DTOs.Requests;
+using Final.DTOs.Request;
 using Final.Entities;
 using Final.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
